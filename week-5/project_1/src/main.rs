@@ -1,19 +1,6 @@
-use std::collections::HashMap;
 use std::io;
 
 fn main() {
-    
-    let price_map: HashMap<&str, u32> = [
-        ("P", 3200), 
-        ("F", 3000), 
-        ("A", 2500), 
-        ("E", 2000), 
-        ("W", 2500), 
-    ]
-    .iter()
-    .cloned()
-    .collect();
-
     println!("Menu:");
     println!("P = Poundo Yam/Edinkaiko Soup - N3,200");
     println!("F = Fried Rice & Chicken - N3,000");
@@ -24,39 +11,57 @@ fn main() {
     let mut total_cost = 0;
 
     loop {
-        
-        println!("\nEnter food code (P, F, A, E, W) or 'Q' to quit:");
-        let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Failed to read input");
-        let food_code = input.trim().to_uppercase();
+        println!("Enter food code (P, F, A, E, W) or 'Q' to quit:");
+
+        let mut food_code = String::new();
+        io::stdin()
+            .read_line(&mut food_code)
+            .expect("Failed to read input");
+        let food_code = food_code.trim().to_uppercase();
 
         if food_code == "Q" {
             break;
         }
 
         
-        if let Some(&price) = price_map.get(food_code.as_str()) {
-            println!("Enter quantity:");
-            let mut quantity = String::new();
-            io::stdin().read_line(&mut quantity).expect("Failed to read input");
-
-            if let Ok(qty) = quantity.trim().parse::<u32>() {
-                total_cost += price * qty;
-            } else {
-                println!("Invalid quantity. Please enter a number.");
+        let price = match food_code.as_str() {
+            "P" => 3200,
+            "F" => 3000,
+            "A" => 2500,
+            "E" => 2000,
+            "W" => 2500,
+            _ => {
+                println!("Invalid food code. Please try again.");
+                continue;
             }
-        } else {
-            println!("Invalid food code. Please try again.");
+        };
+
+        let mut quantity: u32;
+        loop {
+            println!("Enter quantity:");
+
+            let mut quantity_input = String::new();
+            io::stdin()
+                .read_line(&mut quantity_input)
+                .expect("Failed to read input");
+
+            let parsed_quantity = quantity_input.trim().parse::<u32>();
+            if parsed_quantity.is_ok() {
+                quantity = parsed_quantity.unwrap();
+                break;
+            } else {
+                println!("Invalid quantity. Please enter a valid number.");
+            }
         }
-    }
 
-    
-    if total_cost > 10_000 {
-        total_cost = (total_cost as f64 * 0.95) as u32;
-    }
+        total_cost += price * quantity;
+    }    
 
-    println!("\nTotal charges: N{}", total_cost);
+
+        if total_cost > 10_000 {
+            total_cost = (total_cost as f64 * 0.95) as u32;
+        }
+
+
+       println!("Total charges: N{}", total_cost);
 }
-
-
-
