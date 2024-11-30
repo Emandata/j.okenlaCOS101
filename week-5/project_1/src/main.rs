@@ -36,9 +36,9 @@ fn main() {
             }
         };
 
-        let mut quantity: u32;
+        let quantity: u32;
         loop {
-            println!("Enter quantity:");
+            println!("Enter the portion of food wanted:");
 
             let mut quantity_input = String::new();
             io::stdin()
