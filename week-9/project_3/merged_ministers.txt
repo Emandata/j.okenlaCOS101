@@ -1,0 +1,11 @@
+S/N	MINISTER NAME			MINISTRY				GEO-POLITICAL ZONE
+Aigbooun Alamba Daudu	Internal Affairs	South West
+1	Aigbooun Alamba Daudu		Internal Affairs		South West
+Adewale Jimoh Akanbi	Power & Steel	South West
+2	Adewale Jimoh Akanbi		Power & Steel		South West
+Murtala Afeez Bendu	Justice	North East
+3	Murtala Afeez Bendu		Justice		North East
+Okorocha Calistus Ogbona	Defense	South South
+4	Okorocha Calistus Ogbona		Defense		South South
+Osazuwa Faith Elieve	Petroleum	South East
+5	Osazuwa Faith Elieve		Petroleum		South East

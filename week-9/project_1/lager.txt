@@ -1,0 +1,9 @@
+Category: Lager
+Drinks:
+- 33 Export
+- Goldberg
+- Amstel Malta
+- Gulder
+- Heineken
+- Star
+- Desperados
