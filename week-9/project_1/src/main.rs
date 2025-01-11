@@ -13,7 +13,7 @@ impl Category {
             name: name.to_string(),
             drinks: drinks.into_iter().map(|s| s.to_string()).collect(),
         }
-    }
+    }dgh cx
 
     fn save_to_file(&self, file_name: &str) {
         let mut file = File::create(file_name).unwrap(); // This will panic if an error occurs
